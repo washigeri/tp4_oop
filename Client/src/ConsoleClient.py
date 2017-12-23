@@ -1,7 +1,7 @@
 import requests
 
 
-class SimplePythonClient:
+class ConsoleClient:
     def __init__(self, host, port):
         self.host = host
         self.port = port
@@ -10,7 +10,7 @@ class SimplePythonClient:
         url = self.__buildURL()
         resp = requests.get(url)
         data = resp.json()
-        print(data)
+        return data
 
     def __buildURL(self):
         url = "http://" + self.host
@@ -20,5 +20,5 @@ class SimplePythonClient:
 
 
 if __name__ == "__main__":
-    pc = SimplePythonClient("localhost", 8080)
-    pc.getData()
+    pc = ConsoleClient("localhost", 8080)
+    print(pc.getData())

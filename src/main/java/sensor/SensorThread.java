@@ -37,16 +37,16 @@ public class SensorThread implements Runnable {
             start = System.currentTimeMillis() / 1000;
             this.getSensor().setDetect(random.nextBoolean());
             String result = getSensor().toString();
-            for (IFilter filter:
+            for (IFilter filter :
                     getFilters()) {
                 result = filter.processData(result);
             }
-            this.getConcurrentMap().putIfAbsent(this.getId(), result);
+            this.getConcurrentMap().put(this.getId(), result);
             end = System.currentTimeMillis() / 1000;
             try {
-                Thread.sleep(runningTime - (end - start));
+                Thread.sleep(runningTime * 1000 - (end - start));
             } catch (InterruptedException e) {
-               System.out.println("Stopping Sensor Thread with ID: " + this.getId());
+                System.out.println("Stopping Sensor Thread with ID: " + this.getId());
                 loop = false;
             }
         }

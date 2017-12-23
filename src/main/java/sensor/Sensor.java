@@ -28,7 +28,7 @@ public class Sensor {
         return workingRange;
     }
 
-     private void setWorkingRange(int workingRange) {
+    private void setWorkingRange(int workingRange) {
         this.workingRange = workingRange;
     }
 
