@@ -20,15 +20,15 @@ public class Sensor {
         return ID;
     }
 
-    public void setID(short ID) {
+    private void setID(short ID) {
         this.ID = ID;
     }
 
-    public int getWorkingRange() {
+    private int getWorkingRange() {
         return workingRange;
     }
 
-    public void setWorkingRange(int workingRange) {
+     private void setWorkingRange(int workingRange) {
         this.workingRange = workingRange;
     }
 
@@ -36,30 +36,29 @@ public class Sensor {
         return updateFrequency;
     }
 
-    public void setUpdateFrequency(int updateFrequency) {
+    private void setUpdateFrequency(int updateFrequency) {
         this.updateFrequency = updateFrequency;
     }
 
-    public String getOPT() {
+    private String getOPT() {
         return OPT;
     }
 
-    public void setOPT(String OPT) {
+    private void setOPT(String OPT) {
         this.OPT = OPT;
     }
 
     @Override
     public String toString() {
-        String sb = String.format("%2d", getID()) +
+        return String.format("%2d", getID()) +
                 ":R" +
                 String.format("%3d_P", getWorkingRange()) +
                 (isDetect() ? "1" : "0") +
                 ":" + getOPT();
-        return sb;
 
     }
 
-    public boolean isDetect() {
+    private boolean isDetect() {
         return detect;
     }
 
